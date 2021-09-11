@@ -1,0 +1,19 @@
+# Record to click on Get ticket button
+const puppeteer = require('puppeteer');
+const browser = await puppeteer.launch()
+const page = await browser.newPage()
+const navigationPromise = page.waitForNavigation()
+
+await page.goto('https://www.axs.com/events/404405/the-kooks-tickets')
+
+await page.setViewport({ width: 1848, height: 981 })
+
+await page.waitForSelector('.section-event > #event-ticket-options > .c-card > .c-card__column2 > .c-card__btn')
+await page.click('.section-event > #event-ticket-options > .c-card > .c-card__column2 > .c-card__btn')
+
+await page.waitForSelector('.section-event > #event-ticket-options > .c-card > .c-card__column2 > .c-card__btn')
+await page.click('.section-event > #event-ticket-options > .c-card > .c-card__column2 > .c-card__btn')
+
+await navigationPromise
+
+await browser.close()
